@@ -849,9 +849,4 @@ t.teams=n;draw(t);sched(t);save();S.cf='';S.tab='m';render();toast('قرعه‌�
 function del(){if(S.cf!=='del'){S.cf='del';return render()}const t=cur();snap(t,'حذف مسابقه');S.del[t.id]=Date.now();S.tours=S.tours.filter(x=>x.id!==S.cur);delete LAST[t.id];S.cur=null;S.cf='';save();render();toast('مسابقه حذف شد؛ از «تنظیمات ← نسخه‌های قبلی» برمی‌گردد')}
 function render(){$('#app').innerHTML=S.cur&&cur()?(S.pub?pubv(cur()):detail()):home()}
 boot();render();
- if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(err => console.warn('SW:', err));
-  });
-}
 </script></body></html>
